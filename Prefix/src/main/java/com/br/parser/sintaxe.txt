@@ -1,0 +1,5 @@
+gramatica_prefixa: expressao ';' gramatica_prefixa | EOF;
+expressao: operacao | numero;
+operacao: operacao_aritmetica expressao expressao
+operacao_aritmetica: '+' | '-' | '*' | '/';
+numero: CONST_INT | CONST_FLOAT;

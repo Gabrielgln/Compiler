@@ -1,0 +1,9 @@
+calculadora: calculadora_list EOF;
+calculadora_list : calculo*;
+calculo: expr_arit ';';
+expr_arit: termo expr_arit_sub_regra;
+expr_arit_sub_regra: (('+' | '-' ) expr_arit)*;
+termo: fator termo_sub_regra;
+termo_sub_regra: (('*' | '/') termo )*;
+fator: sinal? (CONST_INT | CONST_FLOAT | '(' expr_arit ')');
+sinal: '+' | '-';
